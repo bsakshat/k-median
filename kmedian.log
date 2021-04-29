@@ -1,0 +1,113 @@
+
+Gurobi 9.1.2 (win64, Java) logging started Thu Apr 29 19:17:59 2021
+
+Academic license - for non-commercial use only - expires 2021-06-27
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (win64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 101 rows, 100 columns and 290 nonzeros
+Model fingerprint: 0x9da926e5
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve time: 0.01s
+Presolved: 101 rows, 100 columns, 290 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   1.100000e+01   0.000000e+00      0s
+      41    2.5000000e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 41 iterations and 0.02 seconds
+Optimal objective  2.500000000e+01
+
+Gurobi 9.1.2 (win64, Java) logging started Thu Apr 29 19:17:59 2021
+
+Academic license - for non-commercial use only - expires 2021-06-27
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (win64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 101 rows, 100 columns and 290 nonzeros
+Model fingerprint: 0x49d8dd43
+Variable types: 90 continuous, 10 integer (10 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve time: 0.01s
+Presolved: 101 rows, 100 columns, 290 nonzeros
+Variable types: 90 continuous, 10 integer (10 binary)
+Found heuristic solution: objective 41.0000000
+Found heuristic solution: objective 35.0000000
+
+Root relaxation: objective 2.500000e+01, 46 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0      25.0000000   25.00000  0.00%     -    0s
+
+Explored 0 nodes (46 simplex iterations) in 0.03 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 25 35 41 
+
+Optimal solution found (tolerance 0.00e+00)
+Best objective 2.500000000000e+01, best bound 2.500000000000e+01, gap 0.0000%
+
+Gurobi 9.1.2 (win64, Java) logging started Thu Apr 29 19:21:09 2021
+
+Academic license - for non-commercial use only - expires 2021-06-27
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (win64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 26 rows, 25 columns and 70 nonzeros
+Model fingerprint: 0x7561f49a
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 5e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.00s
+Presolved: 25 rows, 24 columns, 80 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   3.000000e+00   0.000000e+00      0s
+       6    3.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 6 iterations and 0.00 seconds
+Optimal objective  3.000000000e+00
+
+Gurobi 9.1.2 (win64, Java) logging started Thu Apr 29 19:21:09 2021
+
+Academic license - for non-commercial use only - expires 2021-06-27
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (win64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 26 rows, 25 columns and 70 nonzeros
+Model fingerprint: 0xa8623c1c
+Variable types: 20 continuous, 5 integer (5 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 5e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve time: 0.00s
+Presolved: 26 rows, 25 columns, 70 nonzeros
+Variable types: 20 continuous, 5 integer (5 binary)
+Found heuristic solution: objective 4.0000000
+Found heuristic solution: objective 3.0000000
+
+Root relaxation: cutoff, 5 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0     cutoff    0         3.00000    3.00000  0.00%     -    0s
+
+Explored 0 nodes (5 simplex iterations) in 0.00 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 3 4 
+
+Optimal solution found (tolerance 0.00e+00)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
