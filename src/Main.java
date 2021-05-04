@@ -16,7 +16,8 @@ public class Main {
             System.out.println("k must be greater than or equal to 1 and less than or equal to n");
 
         Points p = new Points(n);
-        int[][] distances = p.generatePoints();
+        Point[] samplePoints = p.generatePoints();
+        int[][] distances = p.generateDistanceMatrix();
         p.drawPoints();
 
         GurobiModel gm = new GurobiModel();

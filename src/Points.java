@@ -4,38 +4,49 @@ import java.util.Random;
 public class Points {
 
     private int n;
-    private int[] x_coordinate;
-    private int[] y_coordinate;
+    private Point[] samplePoints = null;
+    private int[][] distanceMatrix;
+
+    private Random rand;
 
     public Points(int n){
         this.n = n;
-        x_coordinate = new int[n];
-        y_coordinate = new int[n];
+        this.samplePoints = new Point[n];
+        this.distanceMatrix = new int[n][n];
+        rand = new Random();
+
     }
 
-    public int[][] generatePoints() {
-        Random rand = new Random();
+    public Point[] generatePoints() {
+        int x, y;
 
         for (int i = 0; i < n; i++) {
-            x_coordinate[i] = rand.nextInt(1000) % n;
-            y_coordinate[i] = rand.nextInt(1000) % n;
+            x = rand.nextInt(n);
+            y = rand.nextInt() % n;
+            this.samplePoints[i] = new Point(x, y);
         }
 
-        int[][] c = new int[n][n];
+        return this.samplePoints;
+    }
+
+    public int[][] generateDistanceMatrix() {
+
+        if (samplePoints == null) {
+            this.generatePoints();
+        }
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                c[i][j] = Math.abs(x_coordinate[i] - x_coordinate[j]) + Math.abs(y_coordinate[i] - y_coordinate[j]);
+                distanceMatrix[i][j] = Math.abs(samplePoints[i].getX() - samplePoints[j].getX()) + Math.abs(samplePoints[i].getY() - samplePoints[j].getY());
             }
         }
-
-        return c;
+        return distanceMatrix;
     }
 
     public void drawPoints() {
 
         for (int i = 0; i < n; i++) {
-            System.out.println( "("+ x_coordinate[i] +"," + y_coordinate[i] + ")");
+            System.out.println( "("+ samplePoints[i].getX() +"," + samplePoints[i].getY() + ")");
         }
     }
 
