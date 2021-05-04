@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -16,13 +17,20 @@ public class Main {
             System.out.println("k must be greater than or equal to 1 and less than or equal to n");
 
         Points p = new Points(n);
-        Point[] samplePoints = p.generatePoints();
-        int[][] distances = p.generateDistanceMatrix();
-        p.drawPoints();
+        try {
 
-        GurobiModel gm = new GurobiModel();
-        gm.solveLP(distances, k);
 
-        gm.solveIP(distances, k);
+            Point[] samplePoints = p.generatePoints();
+            int[][] distances = p.generateDistanceMatrix();
+            p.drawPoints();
+
+            GurobiModel gm = new GurobiModel();
+            gm.solveLP(distances, k);
+
+            gm.solveIP(distances, k);
+        }
+        catch (Exception e) {
+            System.out.println("File not found");
+        }
     }
 }

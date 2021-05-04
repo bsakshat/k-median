@@ -1,4 +1,13 @@
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class Points {
@@ -17,12 +26,16 @@ public class Points {
 
     }
 
-    public Point[] generatePoints() {
+    public Point[] generatePoints() throws IOException {
         int x, y;
 
+        File file = new File("points.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        //List<String> lines = Files.readAllLines(Paths.get("points.txt", ""));
         for (int i = 0; i < n; i++) {
-            x = rand.nextInt(n);
-            y = rand.nextInt() % n;
+            List<String> items = Arrays.asList(br.readLine().split("\\s*,\\s*"));
+            x = Integer.parseInt(items.get(0)) % n;
+            y = Integer.parseInt(items.get(1)) % n;
             this.samplePoints[i] = new Point(x, y);
         }
 
@@ -30,15 +43,18 @@ public class Points {
     }
 
     public int[][] generateDistanceMatrix() {
-
-        if (samplePoints == null) {
-            this.generatePoints();
-        }
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                distanceMatrix[i][j] = Math.abs(samplePoints[i].getX() - samplePoints[j].getX()) + Math.abs(samplePoints[i].getY() - samplePoints[j].getY());
+        try {
+            if (samplePoints == null) {
+                this.generatePoints();
             }
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    distanceMatrix[i][j] = Math.abs(samplePoints[i].getX() - samplePoints[j].getX()) + Math.abs(samplePoints[i].getY() - samplePoints[j].getY());
+                }
+            }
+        }
+        catch (IOException e) {
+            System.out.println("File not found");
         }
         return distanceMatrix;
     }

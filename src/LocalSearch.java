@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -35,28 +36,38 @@ public class LocalSearch {
 
 
         Points p = new Points(5);
-        Point[] samplePoints = p.generatePoints();
-        int[][] distanceMatrix = p.generateDistanceMatrix();
-        int k = 2;
 
-        LocalSearch ls = new LocalSearch(k);
+        try {
+            Point[] samplePoints = p.generatePoints();
+            int[][] distanceMatrix = p.generateDistanceMatrix();
 
-        int[] medians = new int[k];
 
-        for (int i = 0; i < k; i++){
-            medians[i] = rand.nextInt(distanceMatrix.length);
+            int k = 2;
+
+            LocalSearch ls = new LocalSearch(k);
+
+            int[] medians = new int[k];
+
+            for (int i = 0; i < k; i++) {
+                medians[i] = rand.nextInt(distanceMatrix.length);
+            }
+
+            Integer[] mediansArray = Arrays.stream(medians).boxed().toArray(Integer[]::new);
+
+            for (Point s : samplePoints) {
+                System.out.println(s);
+            }
+            System.out.println(Arrays.deepToString(distanceMatrix));
+            System.out.println("Medians: " + Arrays.toString(medians));
+
+            System.out.println("The total distance is" + ls.distance(distanceMatrix, mediansArray));
+        }
+        catch (Exception e) {
+            System.out.println("File not found");
         }
 
-        Integer[] mediansArray = Arrays.stream( medians ).boxed().toArray( Integer[]::new );
-
-        for (Point s: samplePoints) {
-            System.out.println(s);
-        }
-        System.out.println(Arrays.deepToString(distanceMatrix));
-        System.out.println("Medians: " + Arrays.toString(medians));
-
-        System.out.println("The total distance is" + ls.distance(distanceMatrix, mediansArray));
     }
+
 }
 
 
