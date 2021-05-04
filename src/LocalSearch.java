@@ -3,7 +3,6 @@ import java.util.*;
 public class LocalSearch {
 
     private int k;
-    private static Random rand;
     private int n;
     private int[] randomMedians;
 
@@ -11,10 +10,10 @@ public class LocalSearch {
     public LocalSearch(int n, int k){
         this.k = k;
         this.n = n;
-        rand = new Random();
         randomMedians = new int[k];
         makeRandomMedians();
     }
+
 
     private void makeRandomMedians() {
         List<Integer> firstMedians = new ArrayList<>();
@@ -33,28 +32,24 @@ public class LocalSearch {
         return this.randomMedians;
     }
 
+
     public float distance(int[][] distanceMatrix, Integer[] medians) {
         int minDistance = Integer.MAX_VALUE;
         float totalCost = 0;
         for (int i = 0; i < distanceMatrix.length; i++) {
-            if (Arrays.asList(medians).contains(i)) {
-                continue;
-            }
-            for (int j = 0; j < distanceMatrix[0].length; j++) {
-                if (Arrays.asList(medians).contains(j)) {
-                    if (distanceMatrix[i][j] < minDistance) {
-                        minDistance = distanceMatrix[i][j];
-                    }
+            for (int j = 0; j < medians.length; j++) {
+                if (distanceMatrix[i][medians[j]] < minDistance) {
+                    minDistance = distanceMatrix[i][medians[j]];
                 }
             }
             totalCost += minDistance;
+            minDistance = Integer.MAX_VALUE;
         }
         return totalCost;
     }
 
 
     public static void main(String[] args) {
-
 
         Points p = new Points(5);
 

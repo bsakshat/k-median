@@ -111,3 +111,60 @@ Solution count 2: 3 4
 
 Optimal solution found (tolerance 0.00e+00)
 Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 9.1.2 (win64, Java) logging started Tue May  4 14:32:26 2021
+
+Academic license - for non-commercial use only - expires 2021-06-27
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (win64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 26 rows, 25 columns and 70 nonzeros
+Model fingerprint: 0x1d6c774e
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [4e+00, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.01s
+Presolved: 25 rows, 24 columns, 80 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   1.100000e+01   0.000000e+00      0s
+       9    1.7000000e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 9 iterations and 0.02 seconds
+Optimal objective  1.700000000e+01
+
+Gurobi 9.1.2 (win64, Java) logging started Tue May  4 14:32:26 2021
+
+Academic license - for non-commercial use only - expires 2021-06-27
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (win64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 26 rows, 25 columns and 70 nonzeros
+Model fingerprint: 0x87994209
+Variable types: 20 continuous, 5 integer (5 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [4e+00, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve time: 0.01s
+Presolved: 26 rows, 25 columns, 70 nonzeros
+Variable types: 20 continuous, 5 integer (5 binary)
+Found heuristic solution: objective 24.0000000
+Found heuristic solution: objective 22.0000000
+
+Root relaxation: objective 1.700000e+01, 14 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0      17.0000000   17.00000  0.00%     -    0s
+
+Explored 0 nodes (14 simplex iterations) in 0.03 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 17 22 24 
+
+Optimal solution found (tolerance 0.00e+00)
+Best objective 1.700000000000e+01, best bound 1.700000000000e+01, gap 0.0000%
