@@ -1,15 +1,37 @@
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 public class LocalSearch {
 
     private int k;
     private static Random rand;
+    private int n;
+    private int[] randomMedians;
 
-    public LocalSearch(int k){
+
+    public LocalSearch(int n, int k){
         this.k = k;
+        this.n = n;
         rand = new Random();
+        randomMedians = new int[k];
+        makeRandomMedians();
+    }
+
+    private void makeRandomMedians() {
+        List<Integer> firstMedians = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            firstMedians.add(i);
+        }
+        Collections.shuffle(firstMedians);
+
+        for (int j = 0; j < k; j++) {
+            randomMedians[j] = firstMedians.get(j).intValue();
+        }
+    }
+
+    public int[] getRandomMedians() {
+        return this.randomMedians;
     }
 
     public float distance(int[][] distanceMatrix, Integer[] medians) {
@@ -43,14 +65,11 @@ public class LocalSearch {
 
 
             int k = 2;
+            int n = 5;
 
-            LocalSearch ls = new LocalSearch(k);
+            LocalSearch ls = new LocalSearch(n, k);
 
-            int[] medians = new int[k];
-
-            for (int i = 0; i < k; i++) {
-                medians[i] = rand.nextInt(distanceMatrix.length);
-            }
+            int[] medians = ls.getRandomMedians();
 
             Integer[] mediansArray = Arrays.stream(medians).boxed().toArray(Integer[]::new);
 

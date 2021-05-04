@@ -13,7 +13,7 @@ public class Point {
     }
 
     public int getY() {
-        return this.x_coordinate;
+        return this.y_coordinate;
     }
 
     @Override

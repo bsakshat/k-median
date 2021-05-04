@@ -29,13 +29,13 @@ public class Points {
     public Point[] generatePoints() throws IOException {
         int x, y;
 
-        File file = new File("points.txt");
+        File file = new File("dataset\\points.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
-        //List<String> lines = Files.readAllLines(Paths.get("points.txt", ""));
+
         for (int i = 0; i < n; i++) {
             List<String> items = Arrays.asList(br.readLine().split("\\s*,\\s*"));
-            x = Integer.parseInt(items.get(0)) % n;
-            y = Integer.parseInt(items.get(1)) % n;
+            x = Integer.parseInt(items.get(0)) % (2*n);
+            y = Integer.parseInt(items.get(1)) % (2*n);
             this.samplePoints[i] = new Point(x, y);
         }
 
